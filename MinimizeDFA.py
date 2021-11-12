@@ -1,5 +1,3 @@
-from typing import Set
-
 from StateNode import StateNode as sn
 
 edges = []
