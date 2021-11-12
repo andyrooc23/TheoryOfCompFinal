@@ -4,7 +4,7 @@ from StateNode import StateNode as sn
 
 edges = []
 states = []
-userInput = input()
+userInput = input("Provide a dfa file to minimize: ")
 with open(str(userInput)) as file:
     firstLine = file.readline().split()
     for i in range(1, len(firstLine)):
@@ -48,6 +48,7 @@ for i in range(len(grid) - len(marked)):
 
 # finding all non marked states
 # pop all of the unnecessary states
+marked = list(set(frozenset(item) for item in marked))
 for x in marked:
     grid.remove(x)
 # combine all left
