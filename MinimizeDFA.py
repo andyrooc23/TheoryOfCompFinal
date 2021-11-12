@@ -4,7 +4,8 @@ from StateNode import StateNode as sn
 
 edges = []
 states = []
-with open("input1.txt") as file:
+userInput = input()
+with open(str(userInput)) as file:
     firstLine = file.readline().split()
     for i in range(1, len(firstLine)):
         edges.append(firstLine[i])
