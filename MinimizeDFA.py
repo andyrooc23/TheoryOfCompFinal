@@ -97,7 +97,8 @@ for i in reversed(deleteStates):
         if int(stc[0]) in deleteStates:
             for x in toDelete.keys():
                 if i in toDelete[x]:
-                    states[i].children[edge] = states[x].val
+                    if i in range(len(states)) and x in range(len(states)):
+                        states[i].children[edge] = states[x].val
     del states[i]
 
 print("             ", end='')
