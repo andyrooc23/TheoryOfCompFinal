@@ -119,6 +119,3 @@ for x in toDelete.keys():
         if isinstance(y, int):
             print(str(y) + " : ", end='')
     print()
-
-
-# regenerate DFA Table
