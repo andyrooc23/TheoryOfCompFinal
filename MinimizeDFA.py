@@ -1,5 +1,5 @@
 from StateNode import StateNode as sn
-
+# Section 1
 edges = []
 states = []
 userInput = input("Provide a dfa file to minimize: ")
@@ -18,6 +18,7 @@ with open(str(userInput)) as file:
         states.append(thisNode)
         line = file.readline()
 
+# Section 2
 grid = []
 marked = []
 for a in states:
@@ -31,6 +32,8 @@ for a in states:
 
 # grid populated and first round of marking is done
 
+
+# Section 3
 for i in range(len(grid) - len(marked)):
     for combo in reversed(grid):
         if combo not in marked and len(combo) > 0:
@@ -44,6 +47,7 @@ for i in range(len(grid) - len(marked)):
                 if {newX, newY} in marked:
                     marked.append(combo)
 
+#Section 4
 # finding all non marked states
 # pop all of the unnecessary states
 marked = list(set(frozenset(item) for item in marked))
@@ -51,6 +55,7 @@ for x in marked:
     grid.remove(x)
 # combine all left
 
+# Section 5
 # remove only the repeats
 toDelete = dict()
 for combo in grid:
@@ -83,7 +88,7 @@ for combo in grid:
     else:
         toDelete[j].add(i)
 
-
+# Section 6
 deleteStates = set()
 for x in toDelete.keys():
     for y in toDelete[x]:
@@ -101,6 +106,7 @@ for i in reversed(deleteStates):
                         states[i].children[edge] = states[x].val
     del states[i]
 
+# Section 7
 print("             ", end='')
 for x in edges:
     print(edge + "   ", end='')
